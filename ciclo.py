@@ -3,4 +3,4 @@ for x in range(100):
 
 print('Gracias por correr el script')
 
-print('Denada')
+print('Denada, gracias por la invitacion')
