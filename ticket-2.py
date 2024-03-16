@@ -1,23 +1,33 @@
+import time
+import random
+
+class SafeQuestion:
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+
 print('Bienvenido al juego del ahorcado donde debes de adivinar mi palabra secreta! ¿Cómo te llamas?')
 name = str(input(''))
 print ('¿Cuántos años tienes?')
 age = int(input(''))
-import time
 
 print("Hola " + name + ", vamos a jugar al ahorcado.")
 print('Dejame pensar en una palabra mmmmm...')
 time.sleep(3)
 print ('Ya la tengo! Es algo dificil así que te daré 5 vidas')
 
-import random
-
-
-question = 'Vas conduciendo un camión, en la primera parada se suben 4 personas, en la segunda parada se baja 1 y se suben 6, en la tercera se bajan 4 y se suben 2 y en la ultima se suben 9. ¿Cuántos años tiene el conductor? '
+questions = [
+    SafeQuestion(
+        'Vas conduciendo un camión, en la primera parada se suben 4 personas, en la segunda parada se baja 1 y se suben 6, en la tercera se bajan 4 y se suben 2 y en la ultima se suben 9. ¿Cuántos años tiene el conductor?',
+        age),
+    SafeQuestion('Cuantos lados tiene un triangulo', 3)
+]
 
 def getsecretword_random ():
     words = ['esternocleidomastoideo', name, 'ferrocarrilero', 'otorrinolaringologo', 'paralelepipedo', 'confianza', 'pendejo']
     randomword = random.choice(words)
     return randomword
+
 def showtable (secretword,yourword):
     table=""
     for letter in secretword:
@@ -30,12 +40,10 @@ def showtable (secretword,yourword):
 def play():
     secretword = getsecretword_random()
     yourword = []
-    lives = 5 
+    lives = 1 
+    redeemedLife = False
 
     while lives > 0:
-
-        
-
         showtable(secretword,yourword)
         letter = input("Pon una letra: ")
 
@@ -50,20 +58,26 @@ def play():
         else: 
             lives -= 1
             print(f'Chiale no jue te quedan {lives} para adivinar')
+
+        questionanswer = ''
         
         if lives == 0:
-            print('Te doy una oportunidad para redimirte ¿quieres tomar el reto de una pregunta?')
-            revive = str(input('si o no:   '))  
-            if revive == 'no':
-                print('La has cagado :´c la palabra era '+ secretword)
+            if redeemedLife:
+                print('Nimodo, has perdido aun con la vida extra')
             else:
-                print (question)
-                questionanswer = int(input(''))
-            if questionanswer == age:
-                lives += 1
-                print('salvadota que te diste, ten una vida mi buen.')
-            else:
-                print('La has cagado :´c la palabra era '+ secretword)
+                print('Te doy una oportunidad para redimirte ¿quieres tomar el reto de una pregunta?')
+                revive = str(input('si o no:   '))
+                if revive == 'no' or redeemedLife:
+                    print('La has cagado :\'c la palabra era ' + secretword)
+                else:
+                    chosenQuestion = random.choice(questions)
+                    print (chosenQuestion.question)
+                    questionanswer = int(input(''))
+                    if questionanswer == chosenQuestion.answer:
+                        lives += 1
+                        redeemedLife = True
+                        print('salvadota que te diste, ten una vida mi buen.')
+                    else:
+                        print("La has cagado :'c la palabra era "+ secretword)
 
-    
 play()
