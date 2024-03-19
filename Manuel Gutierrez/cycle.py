@@ -8,3 +8,4 @@ if (cycle >= 101):
 else:
     for cycleanswer in range (1,cycle+1):
          print(cycleanswer * cycleanswer)
+print("el proceso ha terminado.")

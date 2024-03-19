@@ -81,3 +81,4 @@ def play():
                         print("La has cagado :'c la palabra era "+ secretword)
 
 play()
+print("Gracias por jugar.")

@@ -8,3 +8,4 @@ for pyramid in range (rows):
     for pyramiddown in range(pyramid, rows-1):
         print('A', end='')
     print()
+print("el proceso ha terminado.")

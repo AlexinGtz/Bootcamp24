@@ -18,3 +18,4 @@ elif operation == '/':
     print(result)
 else:
     print(operation + 'no es un operador válido.')
+print("el proceso ha terminado.")
