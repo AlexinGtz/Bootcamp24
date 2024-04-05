@@ -46,7 +46,7 @@ def Fibonacci(number):
 
 # def Factorial(number):
 #     res = 1
-#     for i in range(1, number + 1):
+#     for i in rnge(1, number + 1):
 #         res *= i
 
 #     return res
@@ -63,4 +63,26 @@ def Fibonacci(number):
 #     recFact = RecursiveFactorial(userInput)
 #     print(fact)
 #     print(recFact)
-        
+
+ciclos = 5
+
+for i in range(1, ciclos):
+    print(i)
+
+user = 'maestro'
+
+tareas = 0
+
+if(user == 'maestro'):
+    print('Eres maestro')
+    tareas = 0
+elif(user == 'alumno'):
+    print('Eres alumno')
+    tareas = 5
+
+print(f'Tu numero de tareas es {tareas}')
+
+def func(param1, param2, param3):
+    pass
+
+func(param2='valor', param1='otro valor', param3='asdba')
