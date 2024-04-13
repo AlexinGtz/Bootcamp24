@@ -64,5 +64,30 @@ lengthOfString = len('Luis')
 print(lengthOfString)
 print(removeStringOriginal[1])
 print(removeStringOriginal[0 : 5])
-formattedString = removeStringOriginal[0:indexToRemove] + removeStringOriginal[(indexToRemove + lengthOfString + 1): -1] + removeStringOriginal[-1]
+formattedString = removeStringOriginal[0:indexToRemove] + removeStringOriginal[(indexToRemove + lengthOfString + 1): ]
 print(formattedString)
+
+# Sets
+conjuntoA = {1, 2 , 3, 4, 5, 6, 7, 8, 9, 10}
+conjuntoB = {10, 20, 30, 40}
+
+print(conjuntoA.union(conjuntoB))
+print(conjuntoA.issuperset(conjuntoB))
+
+for elemento in conjuntoA:
+    print(elemento)
+
+print('------------------------------------------------')
+
+# Dict
+usuariosLoggeado = {
+    'nombre': 'Alex',
+    'edad': 28,
+    'nacionalidad': 'Mexicano',
+    'ojos': 2
+}
+
+print(usuariosLoggeado['nombre'])
+
+for key, value in usuariosLoggeado.items():
+    print(key, value)
