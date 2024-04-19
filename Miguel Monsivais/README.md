@@ -1,1 +1,0 @@
-# Bootcamp24: Miguel Monsivais
